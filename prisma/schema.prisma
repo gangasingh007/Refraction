@@ -1,0 +1,50 @@
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User  {
+  id              Int           @id@default(autoincrement())
+  fullName        String   
+  email           String
+  passwordHash    String?
+  projects        Project[]
+
+
+  @@index([email])
+}
+
+
+model Project {
+  id              Int            @id@default(autoincrement())
+  userId          Int
+  name            String
+  description     String?
+  url             String
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  Components      Component[]
+  fleText         String
+  createdBy       User           @relation(fields: [userId], references: [id],onDelete: Cascade)
+
+  @@index([userId])
+}
+
+
+model Component {
+  id              Int            @id@default(autoincrement())
+  name            String
+  projectId       Int
+  code            String
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  project         Project        @relation(fields: [projectId], references: [id],onDelete: Cascade)
+
+  @@index([projectId])
+}
