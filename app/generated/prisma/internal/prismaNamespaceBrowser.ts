@@ -53,7 +53,8 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   User: 'User',
   Project: 'Project',
-  Component: 'Component'
+  Component: 'Component',
+  ColorPalletes: 'ColorPalletes'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -101,11 +102,24 @@ export const ComponentScalarFieldEnum = {
   name: 'name',
   projectId: 'projectId',
   code: 'code',
+  ussageDoc: 'ussageDoc',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type ComponentScalarFieldEnum = (typeof ComponentScalarFieldEnum)[keyof typeof ComponentScalarFieldEnum]
+
+
+export const ColorPalletesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  hexCodes: 'hexCodes',
+  projectId: 'projectId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ColorPalletesScalarFieldEnum = (typeof ColorPalletesScalarFieldEnum)[keyof typeof ColorPalletesScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -244,6 +244,7 @@ export type ProjectWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   fleText?: Prisma.StringFilter<"Project"> | string
+  colorPalletes?: Prisma.ColorPalletesListRelationFilter
   Components?: Prisma.ComponentListRelationFilter
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }
@@ -257,6 +258,7 @@ export type ProjectOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   fleText?: Prisma.SortOrder
+  colorPalletes?: Prisma.ColorPalletesOrderByRelationAggregateInput
   Components?: Prisma.ComponentOrderByRelationAggregateInput
   createdBy?: Prisma.UserOrderByWithRelationInput
 }
@@ -273,6 +275,7 @@ export type ProjectWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Project"> | Date | string
   fleText?: Prisma.StringFilter<"Project"> | string
+  colorPalletes?: Prisma.ColorPalletesListRelationFilter
   Components?: Prisma.ComponentListRelationFilter
   createdBy?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
 }, "id">
@@ -314,6 +317,7 @@ export type ProjectCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   fleText: string
+  colorPalletes?: Prisma.ColorPalletesCreateNestedManyWithoutProjectInput
   Components?: Prisma.ComponentCreateNestedManyWithoutProjectInput
   createdBy: Prisma.UserCreateNestedOneWithoutProjectsInput
 }
@@ -327,6 +331,7 @@ export type ProjectUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   fleText: string
+  colorPalletes?: Prisma.ColorPalletesUncheckedCreateNestedManyWithoutProjectInput
   Components?: Prisma.ComponentUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -337,6 +342,7 @@ export type ProjectUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  colorPalletes?: Prisma.ColorPalletesUpdateManyWithoutProjectNestedInput
   Components?: Prisma.ComponentUpdateManyWithoutProjectNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
 }
@@ -350,6 +356,7 @@ export type ProjectUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  colorPalletes?: Prisma.ColorPalletesUncheckedUpdateManyWithoutProjectNestedInput
   Components?: Prisma.ComponentUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -502,6 +509,20 @@ export type ProjectUpdateOneRequiredWithoutComponentsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutComponentsInput, Prisma.ProjectUpdateWithoutComponentsInput>, Prisma.ProjectUncheckedUpdateWithoutComponentsInput>
 }
 
+export type ProjectCreateNestedOneWithoutColorPalletesInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutColorPalletesInput, Prisma.ProjectUncheckedCreateWithoutColorPalletesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutColorPalletesInput
+  connect?: Prisma.ProjectWhereUniqueInput
+}
+
+export type ProjectUpdateOneRequiredWithoutColorPalletesNestedInput = {
+  create?: Prisma.XOR<Prisma.ProjectCreateWithoutColorPalletesInput, Prisma.ProjectUncheckedCreateWithoutColorPalletesInput>
+  connectOrCreate?: Prisma.ProjectCreateOrConnectWithoutColorPalletesInput
+  upsert?: Prisma.ProjectUpsertWithoutColorPalletesInput
+  connect?: Prisma.ProjectWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.ProjectUpdateToOneWithWhereWithoutColorPalletesInput, Prisma.ProjectUpdateWithoutColorPalletesInput>, Prisma.ProjectUncheckedUpdateWithoutColorPalletesInput>
+}
+
 export type ProjectCreateWithoutCreatedByInput = {
   name: string
   description?: string | null
@@ -509,6 +530,7 @@ export type ProjectCreateWithoutCreatedByInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   fleText: string
+  colorPalletes?: Prisma.ColorPalletesCreateNestedManyWithoutProjectInput
   Components?: Prisma.ComponentCreateNestedManyWithoutProjectInput
 }
 
@@ -520,6 +542,7 @@ export type ProjectUncheckedCreateWithoutCreatedByInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   fleText: string
+  colorPalletes?: Prisma.ColorPalletesUncheckedCreateNestedManyWithoutProjectInput
   Components?: Prisma.ComponentUncheckedCreateNestedManyWithoutProjectInput
 }
 
@@ -570,6 +593,7 @@ export type ProjectCreateWithoutComponentsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   fleText: string
+  colorPalletes?: Prisma.ColorPalletesCreateNestedManyWithoutProjectInput
   createdBy: Prisma.UserCreateNestedOneWithoutProjectsInput
 }
 
@@ -582,6 +606,7 @@ export type ProjectUncheckedCreateWithoutComponentsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   fleText: string
+  colorPalletes?: Prisma.ColorPalletesUncheckedCreateNestedManyWithoutProjectInput
 }
 
 export type ProjectCreateOrConnectWithoutComponentsInput = {
@@ -607,6 +632,7 @@ export type ProjectUpdateWithoutComponentsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  colorPalletes?: Prisma.ColorPalletesUpdateManyWithoutProjectNestedInput
   createdBy?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
 }
 
@@ -619,6 +645,69 @@ export type ProjectUncheckedUpdateWithoutComponentsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  colorPalletes?: Prisma.ColorPalletesUncheckedUpdateManyWithoutProjectNestedInput
+}
+
+export type ProjectCreateWithoutColorPalletesInput = {
+  name: string
+  description?: string | null
+  url: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  fleText: string
+  Components?: Prisma.ComponentCreateNestedManyWithoutProjectInput
+  createdBy: Prisma.UserCreateNestedOneWithoutProjectsInput
+}
+
+export type ProjectUncheckedCreateWithoutColorPalletesInput = {
+  id?: number
+  userId: number
+  name: string
+  description?: string | null
+  url: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  fleText: string
+  Components?: Prisma.ComponentUncheckedCreateNestedManyWithoutProjectInput
+}
+
+export type ProjectCreateOrConnectWithoutColorPalletesInput = {
+  where: Prisma.ProjectWhereUniqueInput
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutColorPalletesInput, Prisma.ProjectUncheckedCreateWithoutColorPalletesInput>
+}
+
+export type ProjectUpsertWithoutColorPalletesInput = {
+  update: Prisma.XOR<Prisma.ProjectUpdateWithoutColorPalletesInput, Prisma.ProjectUncheckedUpdateWithoutColorPalletesInput>
+  create: Prisma.XOR<Prisma.ProjectCreateWithoutColorPalletesInput, Prisma.ProjectUncheckedCreateWithoutColorPalletesInput>
+  where?: Prisma.ProjectWhereInput
+}
+
+export type ProjectUpdateToOneWithWhereWithoutColorPalletesInput = {
+  where?: Prisma.ProjectWhereInput
+  data: Prisma.XOR<Prisma.ProjectUpdateWithoutColorPalletesInput, Prisma.ProjectUncheckedUpdateWithoutColorPalletesInput>
+}
+
+export type ProjectUpdateWithoutColorPalletesInput = {
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  Components?: Prisma.ComponentUpdateManyWithoutProjectNestedInput
+  createdBy?: Prisma.UserUpdateOneRequiredWithoutProjectsNestedInput
+}
+
+export type ProjectUncheckedUpdateWithoutColorPalletesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  userId?: Prisma.IntFieldUpdateOperationsInput | number
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  Components?: Prisma.ComponentUncheckedUpdateManyWithoutProjectNestedInput
 }
 
 export type ProjectCreateManyCreatedByInput = {
@@ -638,6 +727,7 @@ export type ProjectUpdateWithoutCreatedByInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  colorPalletes?: Prisma.ColorPalletesUpdateManyWithoutProjectNestedInput
   Components?: Prisma.ComponentUpdateManyWithoutProjectNestedInput
 }
 
@@ -649,6 +739,7 @@ export type ProjectUncheckedUpdateWithoutCreatedByInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   fleText?: Prisma.StringFieldUpdateOperationsInput | string
+  colorPalletes?: Prisma.ColorPalletesUncheckedUpdateManyWithoutProjectNestedInput
   Components?: Prisma.ComponentUncheckedUpdateManyWithoutProjectNestedInput
 }
 
@@ -668,10 +759,12 @@ export type ProjectUncheckedUpdateManyWithoutCreatedByInput = {
  */
 
 export type ProjectCountOutputType = {
+  colorPalletes: number
   Components: number
 }
 
 export type ProjectCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  colorPalletes?: boolean | ProjectCountOutputTypeCountColorPalletesArgs
   Components?: boolean | ProjectCountOutputTypeCountComponentsArgs
 }
 
@@ -683,6 +776,13 @@ export type ProjectCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Exte
    * Select specific fields to fetch from the ProjectCountOutputType
    */
   select?: Prisma.ProjectCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * ProjectCountOutputType without action
+ */
+export type ProjectCountOutputTypeCountColorPalletesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ColorPalletesWhereInput
 }
 
 /**
@@ -702,6 +802,7 @@ export type ProjectSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   createdAt?: boolean
   updatedAt?: boolean
   fleText?: boolean
+  colorPalletes?: boolean | Prisma.Project$colorPalletesArgs<ExtArgs>
   Components?: boolean | Prisma.Project$ComponentsArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -744,6 +845,7 @@ export type ProjectSelectScalar = {
 
 export type ProjectOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "description" | "url" | "createdAt" | "updatedAt" | "fleText", ExtArgs["result"]["project"]>
 export type ProjectInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  colorPalletes?: boolean | Prisma.Project$colorPalletesArgs<ExtArgs>
   Components?: boolean | Prisma.Project$ComponentsArgs<ExtArgs>
   createdBy?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   _count?: boolean | Prisma.ProjectCountOutputTypeDefaultArgs<ExtArgs>
@@ -758,6 +860,7 @@ export type ProjectIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
 export type $ProjectPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Project"
   objects: {
+    colorPalletes: Prisma.$ColorPalletesPayload<ExtArgs>[]
     Components: Prisma.$ComponentPayload<ExtArgs>[]
     createdBy: Prisma.$UserPayload<ExtArgs>
   }
@@ -1164,6 +1267,7 @@ readonly fields: ProjectFieldRefs;
  */
 export interface Prisma__ProjectClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  colorPalletes<T extends Prisma.Project$colorPalletesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$colorPalletesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ColorPalletesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Components<T extends Prisma.Project$ComponentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Project$ComponentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ComponentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   createdBy<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
@@ -1596,6 +1700,30 @@ export type ProjectDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Limit how many Projects to delete.
    */
   limit?: number
+}
+
+/**
+ * Project.colorPalletes
+ */
+export type Project$colorPalletesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ColorPalletes
+   */
+  select?: Prisma.ColorPalletesSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ColorPalletes
+   */
+  omit?: Prisma.ColorPalletesOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ColorPalletesInclude<ExtArgs> | null
+  where?: Prisma.ColorPalletesWhereInput
+  orderBy?: Prisma.ColorPalletesOrderByWithRelationInput | Prisma.ColorPalletesOrderByWithRelationInput[]
+  cursor?: Prisma.ColorPalletesWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ColorPalletesScalarFieldEnum | Prisma.ColorPalletesScalarFieldEnum[]
 }
 
 /**

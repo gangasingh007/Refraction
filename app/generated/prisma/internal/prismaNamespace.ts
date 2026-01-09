@@ -386,7 +386,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   User: 'User',
   Project: 'Project',
-  Component: 'Component'
+  Component: 'Component',
+  ColorPalletes: 'ColorPalletes'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -402,7 +403,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "project" | "component"
+    modelProps: "user" | "project" | "component" | "colorPalletes"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -628,6 +629,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    ColorPalletes: {
+      payload: Prisma.$ColorPalletesPayload<ExtArgs>
+      fields: Prisma.ColorPalletesFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ColorPalletesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ColorPalletesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>
+        }
+        findFirst: {
+          args: Prisma.ColorPalletesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ColorPalletesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>
+        }
+        findMany: {
+          args: Prisma.ColorPalletesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>[]
+        }
+        create: {
+          args: Prisma.ColorPalletesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>
+        }
+        createMany: {
+          args: Prisma.ColorPalletesCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ColorPalletesCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>[]
+        }
+        delete: {
+          args: Prisma.ColorPalletesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>
+        }
+        update: {
+          args: Prisma.ColorPalletesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>
+        }
+        deleteMany: {
+          args: Prisma.ColorPalletesDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ColorPalletesUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ColorPalletesUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>[]
+        }
+        upsert: {
+          args: Prisma.ColorPalletesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ColorPalletesPayload>
+        }
+        aggregate: {
+          args: Prisma.ColorPalletesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateColorPalletes>
+        }
+        groupBy: {
+          args: Prisma.ColorPalletesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ColorPalletesGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ColorPalletesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ColorPalletesCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -696,11 +771,24 @@ export const ComponentScalarFieldEnum = {
   name: 'name',
   projectId: 'projectId',
   code: 'code',
+  ussageDoc: 'ussageDoc',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
 
 export type ComponentScalarFieldEnum = (typeof ComponentScalarFieldEnum)[keyof typeof ComponentScalarFieldEnum]
+
+
+export const ColorPalletesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  hexCodes: 'hexCodes',
+  projectId: 'projectId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type ColorPalletesScalarFieldEnum = (typeof ColorPalletesScalarFieldEnum)[keyof typeof ColorPalletesScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -886,6 +974,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   project?: Prisma.ProjectOmit
   component?: Prisma.ComponentOmit
+  colorPalletes?: Prisma.ColorPalletesOmit
 }
 
 /* Types for Logging */
