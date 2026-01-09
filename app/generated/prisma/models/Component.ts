@@ -41,6 +41,7 @@ export type ComponentMinAggregateOutputType = {
   name: string | null
   projectId: number | null
   code: string | null
+  ussageDoc: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -50,6 +51,7 @@ export type ComponentMaxAggregateOutputType = {
   name: string | null
   projectId: number | null
   code: string | null
+  ussageDoc: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -59,6 +61,7 @@ export type ComponentCountAggregateOutputType = {
   name: number
   projectId: number
   code: number
+  ussageDoc: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -80,6 +83,7 @@ export type ComponentMinAggregateInputType = {
   name?: true
   projectId?: true
   code?: true
+  ussageDoc?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -89,6 +93,7 @@ export type ComponentMaxAggregateInputType = {
   name?: true
   projectId?: true
   code?: true
+  ussageDoc?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -98,6 +103,7 @@ export type ComponentCountAggregateInputType = {
   name?: true
   projectId?: true
   code?: true
+  ussageDoc?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -194,6 +200,7 @@ export type ComponentGroupByOutputType = {
   name: string
   projectId: number
   code: string
+  ussageDoc: string
   createdAt: Date
   updatedAt: Date
   _count: ComponentCountAggregateOutputType | null
@@ -226,6 +233,7 @@ export type ComponentWhereInput = {
   name?: Prisma.StringFilter<"Component"> | string
   projectId?: Prisma.IntFilter<"Component"> | number
   code?: Prisma.StringFilter<"Component"> | string
+  ussageDoc?: Prisma.StringFilter<"Component"> | string
   createdAt?: Prisma.DateTimeFilter<"Component"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Component"> | Date | string
   project?: Prisma.XOR<Prisma.ProjectScalarRelationFilter, Prisma.ProjectWhereInput>
@@ -236,6 +244,7 @@ export type ComponentOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  ussageDoc?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   project?: Prisma.ProjectOrderByWithRelationInput
@@ -249,6 +258,7 @@ export type ComponentWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"Component"> | string
   projectId?: Prisma.IntFilter<"Component"> | number
   code?: Prisma.StringFilter<"Component"> | string
+  ussageDoc?: Prisma.StringFilter<"Component"> | string
   createdAt?: Prisma.DateTimeFilter<"Component"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Component"> | Date | string
   project?: Prisma.XOR<Prisma.ProjectScalarRelationFilter, Prisma.ProjectWhereInput>
@@ -259,6 +269,7 @@ export type ComponentOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  ussageDoc?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ComponentCountOrderByAggregateInput
@@ -276,6 +287,7 @@ export type ComponentScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"Component"> | string
   projectId?: Prisma.IntWithAggregatesFilter<"Component"> | number
   code?: Prisma.StringWithAggregatesFilter<"Component"> | string
+  ussageDoc?: Prisma.StringWithAggregatesFilter<"Component"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Component"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Component"> | Date | string
 }
@@ -283,6 +295,7 @@ export type ComponentScalarWhereWithAggregatesInput = {
 export type ComponentCreateInput = {
   name: string
   code: string
+  ussageDoc: string
   createdAt?: Date | string
   updatedAt?: Date | string
   project: Prisma.ProjectCreateNestedOneWithoutComponentsInput
@@ -293,6 +306,7 @@ export type ComponentUncheckedCreateInput = {
   name: string
   projectId: number
   code: string
+  ussageDoc: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -300,6 +314,7 @@ export type ComponentUncheckedCreateInput = {
 export type ComponentUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  ussageDoc?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   project?: Prisma.ProjectUpdateOneRequiredWithoutComponentsNestedInput
@@ -310,6 +325,7 @@ export type ComponentUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   projectId?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  ussageDoc?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -319,6 +335,7 @@ export type ComponentCreateManyInput = {
   name: string
   projectId: number
   code: string
+  ussageDoc: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -326,6 +343,7 @@ export type ComponentCreateManyInput = {
 export type ComponentUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  ussageDoc?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -335,6 +353,7 @@ export type ComponentUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   projectId?: Prisma.IntFieldUpdateOperationsInput | number
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  ussageDoc?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -354,6 +373,7 @@ export type ComponentCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  ussageDoc?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -368,6 +388,7 @@ export type ComponentMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  ussageDoc?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -377,6 +398,7 @@ export type ComponentMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   projectId?: Prisma.SortOrder
   code?: Prisma.SortOrder
+  ussageDoc?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -431,6 +453,7 @@ export type ComponentUncheckedUpdateManyWithoutProjectNestedInput = {
 export type ComponentCreateWithoutProjectInput = {
   name: string
   code: string
+  ussageDoc: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -439,6 +462,7 @@ export type ComponentUncheckedCreateWithoutProjectInput = {
   id?: number
   name: string
   code: string
+  ussageDoc: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -477,6 +501,7 @@ export type ComponentScalarWhereInput = {
   name?: Prisma.StringFilter<"Component"> | string
   projectId?: Prisma.IntFilter<"Component"> | number
   code?: Prisma.StringFilter<"Component"> | string
+  ussageDoc?: Prisma.StringFilter<"Component"> | string
   createdAt?: Prisma.DateTimeFilter<"Component"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Component"> | Date | string
 }
@@ -485,6 +510,7 @@ export type ComponentCreateManyProjectInput = {
   id?: number
   name: string
   code: string
+  ussageDoc: string
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -492,6 +518,7 @@ export type ComponentCreateManyProjectInput = {
 export type ComponentUpdateWithoutProjectInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  ussageDoc?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -500,6 +527,7 @@ export type ComponentUncheckedUpdateWithoutProjectInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  ussageDoc?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -508,6 +536,7 @@ export type ComponentUncheckedUpdateManyWithoutProjectInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   code?: Prisma.StringFieldUpdateOperationsInput | string
+  ussageDoc?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -519,6 +548,7 @@ export type ComponentSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   name?: boolean
   projectId?: boolean
   code?: boolean
+  ussageDoc?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   project?: boolean | Prisma.ProjectDefaultArgs<ExtArgs>
@@ -529,6 +559,7 @@ export type ComponentSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   name?: boolean
   projectId?: boolean
   code?: boolean
+  ussageDoc?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   project?: boolean | Prisma.ProjectDefaultArgs<ExtArgs>
@@ -539,6 +570,7 @@ export type ComponentSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   name?: boolean
   projectId?: boolean
   code?: boolean
+  ussageDoc?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   project?: boolean | Prisma.ProjectDefaultArgs<ExtArgs>
@@ -549,11 +581,12 @@ export type ComponentSelectScalar = {
   name?: boolean
   projectId?: boolean
   code?: boolean
+  ussageDoc?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ComponentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "projectId" | "code" | "createdAt" | "updatedAt", ExtArgs["result"]["component"]>
+export type ComponentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "projectId" | "code" | "ussageDoc" | "createdAt" | "updatedAt", ExtArgs["result"]["component"]>
 export type ComponentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   project?: boolean | Prisma.ProjectDefaultArgs<ExtArgs>
 }
@@ -574,6 +607,7 @@ export type $ComponentPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     name: string
     projectId: number
     code: string
+    ussageDoc: string
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["component"]>
@@ -1004,6 +1038,7 @@ export interface ComponentFieldRefs {
   readonly name: Prisma.FieldRef<"Component", 'String'>
   readonly projectId: Prisma.FieldRef<"Component", 'Int'>
   readonly code: Prisma.FieldRef<"Component", 'String'>
+  readonly ussageDoc: Prisma.FieldRef<"Component", 'String'>
   readonly createdAt: Prisma.FieldRef<"Component", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Component", 'DateTime'>
 }

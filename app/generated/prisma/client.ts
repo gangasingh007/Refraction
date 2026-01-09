@@ -54,3 +54,8 @@ export type Project = Prisma.ProjectModel
  * 
  */
 export type Component = Prisma.ComponentModel
+/**
+ * Model ColorPalletes
+ * 
+ */
+export type ColorPalletes = Prisma.ColorPalletesModel

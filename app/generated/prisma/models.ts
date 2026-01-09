@@ -11,4 +11,5 @@
 export type * from './models/User'
 export type * from './models/Project'
 export type * from './models/Component'
+export type * from './models/ColorPalletes'
 export type * from './commonInputTypes'
